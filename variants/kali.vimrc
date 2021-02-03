@@ -1,12 +1,3 @@
-""""""""""""""""""""""""""
-"    PATHOGEN            "
-""""""""""""""""""""""""""
-execute pathogen#infect()
-filetype plugin indent on
-
-""""""""""""""""""""""""""
-"    INITIAL SETTINGS    "
-"""""""""""""""""""""""""" 
 set autoindent      "Match indentation of the previous line
 set ignorecase      "Ignore case in text search
 set magic           "Allows pattern matching with special characters
@@ -30,11 +21,7 @@ set ruler
 
 syntax enable        "Turn on syntax highlighting
 set background=dark
-colorscheme solarized
 
-""""""""""""""""""""""""""
-"    STATUS LINE         "
-""""""""""""""""""""""""""
 set laststatus=2
 set statusline=%t       "tail of the filename
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
@@ -48,32 +35,15 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "Percentage through file
 
-""""""""""""""""""""""""""
-"    WRAPPING            "
-""""""""""""""""""""""""""
 set nowrap
-set colorcolumn=81
+"set colorcolumn=81
 set textwidth=79
 set formatoptions+=t
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-""""""""""""""""""""""""""
-"    FUZZY FIND          "
-""""""""""""""""""""""""""
 set path+=**
 set wildmenu
-
-""""""""""""""""""""""""""
-"    VIEWS               "
-""""""""""""""""""""""""""
-"autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* loadview
-
-
-""""""""""""""""""""""""""
-"    LINE NUMBERS        "
-""""""""""""""""""""""""""
 set number
 set relativenumber
 function ToggleNumbersOn()
@@ -89,15 +59,8 @@ autocmd FocusGained * call ToggleRelativeOn()
 autocmd InsertEnter * call ToggleNumbersOn()
 autocmd InsertLeave * call ToggleRelativeOn()
 
-""""""""""""""""""""""""""
-"    SYNTAX MODES        "
-""""""""""""""""""""""""""
 let g:vim_markdown_folding_style_pythonic = 1
 
-
-""""""""""""""""""""""""""
-"    KEY MAPPINGS        "
-""""""""""""""""""""""""""
 let mapleader = "-"            
 inoremap jk <esc>|                              "Esacpe
 noremap <leader>s <esc>:update<CR>|             "Save if changes made
@@ -107,27 +70,11 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel| "Wrap word in quotes
 noremap <leader>cl 0v$"*y0|                     "copy line to global buffer
 noremap <leader>v :set paste<cr>"*p<esc>:set nopaste<cr>
 
-"playing with todo list items
-nnoremap <leader>td ^i<space>-<space>[<space>]<space><esc>
-nnoremap <leader>tf ^3lsx<esc>
-nnoremap <leader>tu ^3ls<space><esc>
-"nnoremap <leader>td ^i[]<space><esc>
-"nnoremap <leader>tf ^li*<esc>
-"nnoremap <leader>tw ^li/<esc>
-"nnoremap <leader>te ^liX<esc>
-
-cnoremap ev split $MYVIMRC<cr>
-cnoremap sv source $MYVIMRC<cr>
-
-"Command line maps
-
-"Disable the arrow keys
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
-"Navigate Splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -135,33 +82,9 @@ nnoremap <C-l> <C-w>l
 
 com! FormatJSON %!/usr/bin/python -m json.tool
 
-""""""""""""""""""""""""""
-"    SPELLING            "
-""""""""""""""""""""""""""
 set spelllang=en_us
 cnoremap ss set spell<cr>
 cnoremap ns set nospell<cr>
-noremap z1 z=1<cr>
-iabbrev adn and
 
-
-""""""""""""""""""""""""""
-"    SECURITY            "
-""""""""""""""""""""""""""
 set modelines=0
 set nomodeline
-
-
-""""""""""""""""""""""""""
-"   CoffeeScript Tags    "
-""""""""""""""""""""""""""
-let g:tagbar_type_coffee = {
-    \ 'ctagstype' : 'coffee',
-    \ 'kinds'     : [
-        \ 'c:classes',
-        \ 'm:methods',
-        \ 'f:functions',
-        \ 'v:variables',
-        \ 'f:fields',
-    \ ]
-\ }
