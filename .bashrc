@@ -2,6 +2,7 @@
 [ -f ~/.bash_path ] && . ~/.bash_path
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -f ~/.bash_work ] && . ~/.bash_work
+[ -f ~/.login_message ] && . ~/.login_message
 
 #source /usr/local/etc/bash_completion.d/password-store
 export GEM_HOME=~/.gem/ruby
@@ -303,4 +304,3 @@ function ta()
     tmux attach -t "$session_name"
 }
 
-cat ~/.doepicshit
