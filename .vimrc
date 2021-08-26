@@ -29,8 +29,10 @@ set ruler
 "color default       "other good color options: desert, zellner, default, slate
 
 syntax enable        "Turn on syntax highlighting
+set termguicolors
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme OceanicNext 
 
 """"""""""""""""""""""""""
 "    STATUS LINE         "
@@ -135,6 +137,12 @@ nnoremap <C-l> <C-w>l
 
 com! FormatJSON %!/usr/bin/python -m json.tool
 
+
+""""""""""""""""""""""""""
+"    JEDI-VIM            "
+""""""""""""""""""""""""""
+let g:jedi#auto_initialization = 1
+
 """"""""""""""""""""""""""
 "    SPELLING            "
 """"""""""""""""""""""""""
@@ -153,15 +161,7 @@ set nomodeline
 
 
 """"""""""""""""""""""""""
-"   CoffeeScript Tags    "
+"   Python               "
 """"""""""""""""""""""""""
-let g:tagbar_type_coffee = {
-    \ 'ctagstype' : 'coffee',
-    \ 'kinds'     : [
-        \ 'c:classes',
-        \ 'm:methods',
-        \ 'f:functions',
-        \ 'v:variables',
-        \ 'f:fields',
-    \ ]
-\ }
+autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+let python_highlight_all = 1

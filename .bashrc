@@ -50,6 +50,7 @@ export DISPLAY
 #Set colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export TERM=xterm-256color
 
 # Color definitions (taken from Color Bash Prompt HowTo).
 # Some colors might look different of some terminals.
@@ -301,3 +302,5 @@ function ta()
     session_name=$(tmux ls | sed -n $(($1 + 1))p | cut -d':' -f1)    
     tmux attach -t "$session_name"
 }
+
+cat ~/.doepicshit
