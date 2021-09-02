@@ -1,0 +1,199 @@
+ctrl_alt_cmd = {"ctrl", "alt", "cmd"}
+alt_cmd  = {"alt", "cmd"}
+ctrl_alt     = {"ctrl", "alt"}
+
+-- vim-like movement keys
+move_increment = 10
+hs.hotkey.bind(alt_cmd, "H", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x - move_increment
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "L", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x + move_increment
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "J", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.y = f.y + move_increment
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "K", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.y = f.y - move_increment
+    win:setFrame(f)
+end)
+
+-- Push windows 
+--[[
+     Q  W  E
+     A  S  D
+     Z  X  C
+--]]
+hs.hotkey.bind(alt_cmd, "Q", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w / 2
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "W", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "E", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x + (s_f.w / 2)
+    f.y = s_f.y
+    f.w = s_f.w / 2
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "W", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+hs.hotkey.bind(alt_cmd, "W", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "A", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w / 2
+    f.h = s_f.h
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "A", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w / 2
+    f.h = s_f.h
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "S", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y
+    f.w = s_f.w
+    f.h = s_f.h
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "D", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x + (s_f.w / 2)
+    f.y = s_f.y
+    f.w = s_f.w / 2
+    f.h = s_f.h
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "Z", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y + (s_f.h / 2)
+    f.w = s_f.w / 2
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "X", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x
+    f.y = s_f.y + (s_f.h / 2)
+    f.w = s_f.w
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+hs.hotkey.bind(alt_cmd, "C", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local s_f = screen:frame()
+
+    f.x = s_f.x + (s_f.w / 2)
+    f.y = s_f.y + (s_f.h / 2)
+    f.w = s_f.w / 2
+    f.h = s_f.h / 2
+    win:setFrame(f)
+end)
+
+-- Show current wifi network
+hs.hotkey.bind(ctrl_alt_cmd, "W", function()
+    hs.alert.show(hs.wifi.currentNetwork())
+end)
