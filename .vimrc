@@ -102,6 +102,7 @@ let g:vim_markdown_folding_style_pythonic = 1
 """"""""""""""""""""""""""
 let mapleader = "-"            
 inoremap jk <esc>|                              "Esacpe
+noremap <leader>ct :clear<CR>
 noremap <leader>s <esc>:update<CR>|             "Save if changes made
 inoremap <c-d> <esc>ddi|                        "Delete Line and keep editing
 inoremap <c-u> <esc>viwUi|                      "Capitiilze word
