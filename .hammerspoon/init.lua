@@ -90,7 +90,7 @@ hs.hotkey.bind(alt_cmd, "A", function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
-    local max = screen:frame()
+    local s_f = screen:frame()
 
     f.x = s_f.x
     f.y = s_f.y
