@@ -295,6 +295,12 @@ export HISTCONTROL=ignoredups
 export HOSTFILE=$HOME/.hosts    # Put a list of remote hosts in ~/.hosts
 export CUTE_BATTERY_INDICATOR=1
 
+#BASH COMPLETIONS
+
+if command -v pass &> /dev/null; then
+    source /usr/local/etc/bash_completion.d/pass
+fi
+
 #FUNCTIONS
 
 #ta - tmux attach - attach session from line $1 (zero indexed)
