@@ -57,6 +57,7 @@ alias bremove='brew remove'
 ##########################
 alias celar='clear'
 alias cim='vim'
+alias bim='vim'
 
 ##########################
 #     MISC ALIASES	 #

@@ -7,6 +7,12 @@ filetype plugin indent on
 """"""""""""""""""""""""""
 "    INITIAL SETTINGS    "
 """""""""""""""""""""""""" 
+syntax enable        "Turn on syntax highlighting
+set termguicolors
+set background=dark
+"colorscheme solarized
+colorscheme OceanicNext 
+
 set autoindent      "Match indentation of the previous line
 set ignorecase      "Ignore case in text search
 set magic           "Allows pattern matching with special characters
@@ -16,6 +22,8 @@ set tabstop=8       "Some stuff to do with making tabs work correctly
 set shiftwidth=4
 set softtabstop=4
 set smarttab
+set cursorline
+hi  cursorline cterm=underline ctermbg=NONE guibg=NONE
 set hlsearch        "Highlight search matches
 set incsearch       "Highlight matches while typing search string
 set cspc=3          "cscope plugin settings
@@ -27,12 +35,6 @@ set smartindent
 set showcmd
 set ruler
 "color default       "other good color options: desert, zellner, default, slate
-
-syntax enable        "Turn on syntax highlighting
-set termguicolors
-set background=dark
-"colorscheme solarized
-colorscheme OceanicNext 
 
 """"""""""""""""""""""""""
 "    STATUS LINE         "
