@@ -137,6 +137,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+set splitright
+set splitbelow
 
 com! FormatJSON %!/usr/bin/python -m json.tool
 
@@ -150,8 +152,8 @@ let g:jedi#auto_initialization = 1
 "    SPELLING            "
 """"""""""""""""""""""""""
 set spelllang=en_us
-cnoremap ss set spell<cr>
-cnoremap ns set nospell<cr>
+nnoremap <leader>ss :set spell<cr>
+nnoremap <leader>ns :set nospell<cr>
 noremap z1 z=1<cr>
 iabbrev adn and
 
