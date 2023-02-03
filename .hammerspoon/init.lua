@@ -1,6 +1,5 @@
-ctrl_alt_cmd = {"ctrl", "alt", "cmd"}
-alt_cmd  = {"alt", "cmd"}
-ctrl_alt     = {"ctrl", "alt"}
+require "include/modifiers"
+require "include/push_windows"
 
 -- Move a window to a display
 function move_window_to_display(display_id)
@@ -47,122 +46,15 @@ end)
      A  S  D
      Z  X  C
 --]]
-hs.hotkey.bind(alt_cmd, "Q", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x
-    f.y = s_f.y
-    f.w = s_f.w / 2
-    f.h = s_f.h / 2
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "W", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x
-    f.y = s_f.y
-    f.w = s_f.w
-    f.h = s_f.h / 2
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "E", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x + (s_f.w / 2)
-    f.y = s_f.y
-    f.w = s_f.w / 2
-    f.h = s_f.h / 2
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "A", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x
-    f.y = s_f.y
-    f.w = s_f.w / 2
-    f.h = s_f.h
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "S", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x
-    f.y = s_f.y
-    f.w = s_f.w
-    f.h = s_f.h
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "D", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x + (s_f.w / 2)
-    f.y = s_f.y
-    f.w = s_f.w / 2
-    f.h = s_f.h
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "Z", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x
-    f.y = s_f.y + (s_f.h / 2)
-    f.w = s_f.w / 2
-    f.h = s_f.h / 2
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "X", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x
-    f.y = s_f.y + (s_f.h / 2)
-    f.w = s_f.w
-    f.h = s_f.h / 2
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "C", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local s_f = screen:frame()
-
-    f.x = s_f.x + (s_f.w / 2)
-    f.y = s_f.y + (s_f.h / 2)
-    f.w = s_f.w / 2
-    f.h = s_f.h / 2
-    win:setFrame(f)
-end)
+hs.hotkey.bind(alt_cmd, "Q", push_top_left)
+hs.hotkey.bind(alt_cmd, "W", push_top_half)
+hs.hotkey.bind(alt_cmd, "E", push_top_right)
+hs.hotkey.bind(alt_cmd, "A", push_left_half)
+hs.hotkey.bind(alt_cmd, "S", push_full_screen)
+hs.hotkey.bind(alt_cmd, "D", push_right_half)
+hs.hotkey.bind(alt_cmd, "Z", push_bottom_left)
+hs.hotkey.bind(alt_cmd, "X", push_bottom_half)
+hs.hotkey.bind(alt_cmd, "C", push_bottom_right)
 
 -- Push windows to display
 hs.hotkey.bind(ctrl_alt_cmd, "1", move_window_to_display(1))
