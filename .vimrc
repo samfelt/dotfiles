@@ -35,6 +35,8 @@ set smartindent
 set showcmd
 set ruler
 "color default       "other good color options: desert, zellner, default, slate
+set splitright
+set splitbelow
 
 """"""""""""""""""""""""""
 "    STATUS LINE         "
