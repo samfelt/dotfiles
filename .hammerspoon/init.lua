@@ -1,44 +1,18 @@
 require "include/modifiers"
-require "include/push_windows"
+require "include/push_window"
+require "include/nudge_window"
+require "include/move_window"
+require "include/wifi"
+require "include/app_watcher"
 
--- Move a window to a display
-function move_window_to_display(display_id)
-    return function()
-        local win = hs.window.focusedWindow()
-        local displays = hs.screen.allScreens()
-        win:moveToScreen(displays[display_id], false, true)
-    end
-end
-
--- vim-like movement keys
-move_increment = 10
-hs.hotkey.bind(alt_cmd, "H", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    f.x = f.x - move_increment
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "L", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    f.x = f.x + move_increment
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "J", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    f.y = f.y + move_increment
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind(alt_cmd, "K", function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    f.y = f.y - move_increment
-    win:setFrame(f)
-end)
+-- vim-like Nudge keys
+--[[
+    H J K L
+--]]
+hs.hotkey.bind(alt_cmd, "H", nudge_left)
+hs.hotkey.bind(alt_cmd, "J", nudge_down)
+hs.hotkey.bind(alt_cmd, "K", nudge_up)
+hs.hotkey.bind(alt_cmd, "L", nudge_right)
 
 -- Push windows 
 --[[
@@ -56,26 +30,21 @@ hs.hotkey.bind(alt_cmd, "Z", push_bottom_left)
 hs.hotkey.bind(alt_cmd, "X", push_bottom_half)
 hs.hotkey.bind(alt_cmd, "C", push_bottom_right)
 
--- Push windows to display
+-- Move windows to displays
 hs.hotkey.bind(ctrl_alt_cmd, "1", move_window_to_display(1))
 hs.hotkey.bind(ctrl_alt_cmd, "2", move_window_to_display(2))
 hs.hotkey.bind(ctrl_alt_cmd, "3", move_window_to_display(3))
+hs.hotkey.bind(ctrl_alt_cmd, "4", move_window_to_display(4))
 
--- Show current wifi network
-hs.hotkey.bind(ctrl_alt_cmd, "W", function()
-    data = "Wifi:\t\t\t  "
-    data = data .. hs.wifi.currentNetwork()
+-- Move windows to other spaces(desktops)
+hs.hotkey.bind(alt_cmd, "1", move_main_window_to_space(1))
+hs.hotkey.bind(alt_cmd, "2", move_main_window_to_space(2))
+hs.hotkey.bind(alt_cmd, "3", move_main_window_to_space(3))
 
-    interface = hs.network.primaryInterfaces()
-    data = data .. "\nVPN:\t\t  "
-    if interface:sub(0,2) == "en" then
-        data = data .. "NOT Connected"
-    elseif interface:sub(0,4) == "utun" then
-        data = data .. "Connected"
-    else
-        data = data .. "Unsure..."
-    end
-    data = data .. "\nInterface:\t  "
-    data = data .. interface
-    hs.alert.show(data)
-end)
+-- Show current wifi and VPN info
+hs.hotkey.bind(ctrl_alt_cmd, "W", show_wifi_info)
+
+-- Watcher
+appWatcher = hs.application.watcher.new(applicationWatcher)
+appWatcher:start()
+
