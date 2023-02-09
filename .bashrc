@@ -300,6 +300,7 @@ export CUTE_BATTERY_INDICATOR=1
 if command -v pass &> /dev/null; then
     source /usr/local/etc/bash_completion.d/pass
 fi
+source /usr/local/etc/bash_completion.d/ssh
 
 #FUNCTIONS
 
@@ -310,3 +311,7 @@ function ta()
     tmux attach -t "$session_name"
 }
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
