@@ -14,7 +14,7 @@ alias .5='cd ../../../../..'
 ##########################
 alias c='clear'
 alias cls='clear'
-alias ls='ls -F'
+alias ls='ls -F --color'
 alias ls1='ls -c1'
 alias ll='ls -Fl'
 alias lla='ls -Fla'

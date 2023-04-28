@@ -4,7 +4,6 @@
 [ -f ~/.bash_work ] && . ~/.bash_work
 [ -f ~/.login_message ] && . ~/.login_message
 
-#source /usr/local/etc/bash_completion.d/password-store
 export GEM_HOME=~/.gem/ruby
 export GEM_PATH=$GEM_HOME/gems
 
@@ -300,7 +299,6 @@ export CUTE_BATTERY_INDICATOR=1
 if command -v pass &> /dev/null; then
     source /usr/local/etc/bash_completion.d/pass
 fi
-source /usr/local/etc/bash_completion.d/ssh
 
 #FUNCTIONS
 
